@@ -1,0 +1,29 @@
+{
+  "name": "journal-fs",
+  "version": "1.0.0",
+  "description": "A simple journal/posting app using Nodejs, Express, and EJS.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js --ignore db/",
+    "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edriso/journal-fs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edriso/journal-fs/issues"
+  },
+  "homepage": "https://github.com/edriso/journal-fs#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.2.4"
+  }
+}
