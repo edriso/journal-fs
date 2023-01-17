@@ -10,5 +10,3 @@ A simple journal/posting app using Nodejs, Express, and EJS.
 - Search for books by Name, Author
 - Edit book
 - Delete book
-
-**_I will do the same CRUD operations but on a journal project ;)_**
