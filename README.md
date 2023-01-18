@@ -4,9 +4,12 @@ A simple journal/posting app using Nodejs, Express, and EJS.
 
 #### Author should be able to:
 
-- Read all posts data that should be saved is (Name, Author)
-- Add new book
-- Display all books
-- Search for books by Name, Author
-- Edit book
-- Delete book
+- Display all posts
+- Add new post
+- Edit post
+- Delete post
+- Search for posts by Author and content
+
+## To Start The App
+
+Simply run `npm install` then `npm start`.

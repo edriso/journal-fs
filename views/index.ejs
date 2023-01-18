@@ -1,7 +1,51 @@
 <%- include('partials/header') %>
 
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+<form action="/" method="get" class="max-w-lg">
+  <div class="form-group mb-6">
+    <input
+      type="text"
+      class="form-control block w-full bg-[#f6f7f3] px-3 py-1.5 border border-gray-300 rounded transition ease-in-out m-0 focus:border-[#0f0d35] focus:outline-none"
+      placeholder="Search Posts..."
+      name="q"
+      value="<%= query %>"
+    />
+    <input type="submit" hidden />
+  </div>
+</form>
+
+<% if(!posts.length) { %>
+<div class="text-center">
+  <h3 class="text-[#f6f7f3]">There's No Posts!</h3>
+</div>
+<% } %>
+
+<section
+  class="posts grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+>
+  <% posts.forEach(post => { %>
+
+  <article class="overflow-hidden bg-gray-100 rounded-lg">
+    <a href="/posts/<%= post.id %>">
+      <img
+        alt="Placeholder"
+        class="block h-auto w-full"
+        src="<%= post.img %>"
+      />
+    </a>
+
+    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+      <h3 class="text-md">
+        <a
+          class="no-underline hover:underline text-gray-800"
+          href="/posts/<%= post.id %>"
+        >
+          <%= post.title %>
+        </a>
+      </h3>
+      <p class="text-sm"><%= post.date %></p>
+    </header>
+  </article>
+  <% }) %>
+</section>
 
 <%- include('partials/footer') %>

@@ -5,36 +5,33 @@
     <div class="form-group mb-6">
       <input
         type="text"
-        class="form-control block w-full bg-[#f6f7f3] px-3 py-1.5 border border-gray-300 rounded transition ease-in-out m-0 focus:border-[#0f0d35] focus:outline-none"
+        class="form-control block w-full px-3 py-1.5 bg-[#f6f7f3] border border-gray-300 rounded transition ease-in-out m-0 focus:border-[#0f0d35] focus:outline-none"
         placeholder="Title"
         name="title"
-        value="<%= post.title %>"
       />
     </div>
     <div class="form-group mb-6">
       <textarea
-        class="form-control block w-full bg-[#f6f7f3] px-3 py-1.5 border border-gray-300 rounded transition ease-in-out m-0 focus:border-[#0f0d35] focus:outline-none"
+        class="form-control block w-full px-3 py-1.5 bg-[#f6f7f3] border border-gray-300 rounded transition ease-in-out m-0 focus:border-[#0f0d35] focus:outline-none"
         rows="3"
         name="content"
         placeholder="Content..."
-      >
-      <%= post.content %></textarea
-      >
+      ></textarea>
     </div>
     <div class="form-group mb-6">
       <input
         type="text"
-        class="form-control block w-full bg-[#f6f7f3] px-3 py-1.5 border border-gray-300 rounded transition ease-in-out m-0 focus:border-[#0f0d35] focus:outline-none"
+        class="form-control block w-full px-3 py-1.5 bg-[#f6f7f3] border border-gray-300 rounded transition ease-in-out m-0 focus:border-[#0f0d35] focus:outline-none"
         name="img"
         placeholder="Image URL"
-        value="<%= post.img %>"
+        value="https://picsum.photos/600/400/?random"
       />
     </div>
     <button
       type="submit"
       class="w-full px-6 py-2.5 bg-[#0f0d35] text-white font-medium text-xs leading-tight uppercase rounded hover:bg-yellow-600 focus:outline-none transition duration-150 ease-in-out"
     >
-      Edit Post
+      Create Post
     </button>
   </form>
 </section>

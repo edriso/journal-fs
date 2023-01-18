@@ -1,1 +1,1 @@
-*.ejs
+/views/partials/*.ejs
