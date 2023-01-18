@@ -54,8 +54,8 @@ app.get("/create-post", (req, res) => {
 });
 
 app.post("/create-post", (req, res) => {
-  const title = req.body.title;
-  const content = req.body.content;
+  const title = req.body.title.trim();
+  const content = req.body.content.trim();
   const img = req.body.img;
 
   if (title && content) {
@@ -97,8 +97,8 @@ app.post("/posts/:id/edit", (req, res) => {
   const id = req.params.id * 1;
   const selectedPost = posts.find((post) => post.id === id);
 
-  const newTitle = req.body.title;
-  const newContent = req.body.content;
+  const newTitle = req.body.title.trim();
+  const newContent = req.body.content.trim();
   const newImg = req.body.img;
 
   if (selectedPost && newTitle && newContent) {
