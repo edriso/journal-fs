@@ -1,10 +1,13 @@
 <%- include('partials/header') %>
 
-<article class="flex flex-col overflow-hidden bg-[#f6f7f3] rounded-lg">
+<article
+  class="flex flex-col overflow-hidden bg-[#f6f7f3] rounded-lg mx-auto lg:w-8/12"
+>
   <div class="h-96 lg:h-[32rem] w-full">
     <img
       class="inset-0 h-full w-full object-cover object-center"
       src="<%= post.img %>"
+      alt="Post image"
     />
   </div>
 
