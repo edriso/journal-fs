@@ -67,7 +67,7 @@ app.post("/posts", (req, res) => {
     posts.push(newPost);
 
     fs.writeFile(`${__dirname}/db/posts.json`, JSON.stringify(posts), (err) => {
-      res.status(200).redirect("/");
+      res.status(201).redirect("/");
     });
   } else {
     res.status(400).redirect("/create-post");
