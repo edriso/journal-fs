@@ -12,16 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 // Reading All Posts
-const postsData = fs.readFileSync(`${__dirname}/db/posts.json`, "utf-8");
-const posts = JSON.parse(postsData);
-
-const updatePosts = (allPosts) => {
-  fs.writeFileSync(
-    `${__dirname}/db/posts.json`,
-    JSON.stringify(allPosts),
-    "utf-8"
-  );
-};
+let posts = JSON.parse(fs.readFileSync(`${__dirname}/db/posts.json`));
 
 // Routes
 app.get("/", (req, res) => {
@@ -53,7 +44,7 @@ app.get("/create-post", (req, res) => {
   res.render("create-post");
 });
 
-app.post("/create-post", (req, res) => {
+app.post("/posts", (req, res) => {
   const title = req.body.title.trim();
   const content = req.body.content.trim();
   const img = req.body.img;
@@ -75,9 +66,9 @@ app.post("/create-post", (req, res) => {
 
     posts.push(newPost);
 
-    updatePosts(posts);
-
-    res.status(200).redirect("/");
+    fs.writeFile(`${__dirname}/db/posts.json`, JSON.stringify(posts), (err) => {
+      res.status(200).redirect("/");
+    });
   } else {
     res.status(400).redirect("/create-post");
   }
@@ -112,9 +103,9 @@ app.post("/posts/:id/edit", (req, res) => {
     const postIndex = posts.findIndex((post) => post.id === id * 1);
     posts[postIndex] = editedPost;
 
-    updatePosts(posts);
-
-    res.status(200).redirect("/");
+    fs.writeFile(`${__dirname}/db/posts.json`, JSON.stringify(posts), (err) => {
+      res.status(200).redirect("/");
+    });
   } else {
     res.status(400).redirect(`/posts/:${id}/edit`, { error: true });
   }
@@ -124,14 +115,12 @@ app.get("/posts/:id/delete", (req, res) => {
   const selectedPost = posts.find((post) => post.id === req.params.id * 1);
 
   if (selectedPost) {
-    const newPosts = posts.filter((post) => post.id !== req.params.id * 1);
+    posts = posts.filter((post) => post.id !== req.params.id * 1);
 
-    updatePosts(newPosts);
+    fs.writeFile(`${__dirname}/db/posts.json`, JSON.stringify(posts), (err) => {
+      res.status(200).redirect("/");
+    });
   }
-
-  setTimeout(() => {
-    res.status(200).redirect("/");
-  }, 200);
 });
 
 // Server
