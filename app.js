@@ -107,7 +107,8 @@ app.post("/posts/:id/edit", (req, res) => {
       res.status(200).redirect("/");
     });
   } else {
-    res.status(400).redirect(`/posts/:${id}/edit`, { error: true });
+    res.status(400).redirect(`/posts/:${id}/edit`);
+    // res.status(400).redirect(`/posts/:${id}/edit`, { error: true });
   }
 });
 
